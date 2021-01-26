@@ -1,9 +1,52 @@
 <?php
+if ( ! function_exists( 'streamer_setup' ) ) :
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which runs
+ * before the init hook. The init hook is too late for some features, such as indicating
+ * support post thumbnails.
+ */
+function streamer_setup() {
 
-function wdthemes_register_styles(){
+    /**
+     * Add default posts and comments RSS feed links to <head>.
+     */
+    add_theme_support( 'automatic-feed-links' );
 
-    wp_enqueue_style('wdthemes-bootstrap', get_template_directory_uri() . "/style.css" , array(),'1.0','all');
+    /**
+     * Enable support for post thumbnails and featured images.
+     */
+    add_theme_support( 'post-thumbnails' );
+
+    add_theme_support( 'editor-color-palette', array(
+        array(
+            'name' => __( 'strong magenta', 'streamer' ),
+            'slug' => 'strong-magenta',
+            'color' => '#a156b4',
+        ),
+        array(
+            'name' => __( 'very dark gray', 'streamer' ),
+            'slug' => 'very-dark-gray',
+            'color' => '#444',
+        ),
+    ) );
+
+    add_theme_support( 'wp-block-styles' );
+
+    add_theme_support( 'align-wide' );
 }
+endif; // myfirsttheme_setup
+add_action( 'after_setup_theme', 'streamer' );
 
-add_action('wp_enqueue_scripts', 'wdthemes_register_styles');
-?>
+/**
+ * Enqueue theme scripts and styles.
+ */
+function myfirsttheme_scripts() {
+    wp_enqueue_style( 'streamer-style', get_stylesheet_uri() );
+ 
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'streamer_scripts' );
