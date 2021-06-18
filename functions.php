@@ -537,18 +537,18 @@ require get_template_directory() . '/inc/menu-functions.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 // Customizer additions.
-require get_template_directory() . '/classes/class-streamer-customize.php';
-new streamer_Customize();
+//require get_template_directory() . '/classes/class-streamer-customize.php';
+//new streamer_Customize();
 
 // Block Patterns.
-require get_template_directory() . '/inc/block-patterns.php';
+//require get_template_directory() . '/inc/block-patterns.php';
 
 // Block Styles.
-require get_template_directory() . '/inc/block-styles.php';
+//require get_template_directory() . '/inc/block-styles.php';
 
 // Dark Mode.
-require_once get_template_directory() . '/classes/class-streamer-dark-mode.php';
-new streamer_Dark_Mode();
+//require_once get_template_directory() . '/classes/class-streamer-dark-mode.php';
+//new streamer_Dark_Mode();
 
 /**
  * Enqueue scripts for the customizer preview.
