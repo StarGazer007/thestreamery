@@ -10,9 +10,9 @@
  */
 
 // This theme requires WordPress 5.3 or later.
-if ( version_compare( $GLOBALS['wp_version'], '5.3', '<' ) ) {
-	require get_template_directory() . '/inc/back-compat.php';
-}
+//if ( version_compare( $GLOBALS['wp_version'], '5.3', '<' ) ) {
+//	require get_template_directory() . '/inc/back-compat.php';
+//}
 
 if ( ! function_exists( 'streamer_setup' ) ) {
 	/**
@@ -30,10 +30,10 @@ if ( ! function_exists( 'streamer_setup' ) ) {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Twenty Twenty-One, use a find and replace
+		 * If you're building a theme based on Streamer, use a find and replace
 		 * to change 'streamer' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'streamer', get_template_directory() . '/languages' );
+		//load_theme_textdomain( 'streamer', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -130,17 +130,17 @@ if ( ! function_exists( 'streamer_setup' ) ) {
 			add_theme_support( 'dark-editor-style' );
 		}
 
-		$editor_stylesheet_path = './assets/css/style-editor.css';
+	//	$editor_stylesheet_path = './assets/css/style-editor.css';
 
 		// Note, the is_IE global variable is defined by WordPress and is used
 		// to detect if the current browser is internet explorer.
-		global $is_IE;
-		if ( $is_IE ) {
-			$editor_stylesheet_path = './assets/css/ie-editor.css';
-		}
+	//	global $is_IE;
+	//	if ( $is_IE ) {
+	//		$editor_stylesheet_path = './assets/css/ie-editor.css';
+	//	}
 
 		// Enqueue editor styles.
-		add_editor_style( $editor_stylesheet_path );
+	//	add_editor_style( $editor_stylesheet_path );
 
 		// Add custom editor font sizes.
 		add_theme_support(

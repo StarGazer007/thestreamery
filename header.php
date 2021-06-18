@@ -4,11 +4,11 @@
  *
  * This is the template that displays all of the <head> section and everything up until main.
  *
- * 
+ *
  *
  * @package WordPress
  * @subpackage Steamer
- * @since Twenty Streamer 1.0
+ * @since Streamer 1.0
  */
 
 ?>
