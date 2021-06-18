@@ -624,11 +624,13 @@ function streamer_the_html_classes() {
  */
 function streamer_add_ie_class() {
 	?>
+
+	<!--
 	<script>
 	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
 		document.body.classList.add( 'is-IE' );
 	}
-	</script>
+</script> -->
 	<?php
 }
 add_action( 'wp_footer', 'streamer_add_ie_class' );
