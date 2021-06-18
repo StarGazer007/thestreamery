@@ -622,6 +622,7 @@ function streamer_the_html_classes() {
  *
  * @return void
  */
+/**
 function streamer_add_ie_class() {
 	?>
 
@@ -634,3 +635,4 @@ function streamer_add_ie_class() {
 	<?php
 }
 add_action( 'wp_footer', 'streamer_add_ie_class' );
+*/
