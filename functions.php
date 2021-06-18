@@ -557,7 +557,7 @@ require get_template_directory() . '/inc/template-tags.php';
  *
  * @return void
  */
-function streamer_customize_preview_init() {
+/*function streamer_customize_preview_init() {
 	wp_enqueue_script(
 		'streamer-customize-helpers',
 		get_theme_file_uri( '/assets/js/customize-helpers.js' ),
@@ -574,8 +574,8 @@ function streamer_customize_preview_init() {
 		true
 	);
 }
-//add_action( 'customize_preview_init', 'streamer_customize_preview_init' );
-
+add_action( 'customize_preview_init', 'streamer_customize_preview_init' );
+*/
 /**
  * Enqueue scripts for the customizer.
  *
@@ -583,6 +583,8 @@ function streamer_customize_preview_init() {
  *
  * @return void
  */
+
+ /*
 function streamer_customize_controls_enqueue_scripts() {
 
 	wp_enqueue_script(
@@ -594,7 +596,7 @@ function streamer_customize_controls_enqueue_scripts() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'streamer_customize_controls_enqueue_scripts' );
-
+*/
 /**
  * Calculate classes for the main <html> element.
  *
