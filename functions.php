@@ -2,7 +2,7 @@
 /**
  * Functions and definitions
  *
- * 
+ *
  *
  * @package WordPress
  * @subpackage Streamer
@@ -31,7 +31,7 @@ if ( ! function_exists( 'streamer_setup' ) ) {
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Twenty Twenty-One, use a find and replace
-		 * to change 'twentytwentyone' to the name of your theme in all the template files.
+		 * to change 'streamer' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( 'streamer', get_template_directory() . '/languages' );
 
@@ -276,37 +276,37 @@ if ( ! function_exists( 'streamer_setup' ) ) {
 					'slug'     => 'purple-to-yellow',
 				),
 				array(
-					'name'     => esc_html__( 'Yellow to purple', 'twentytwentyone' ),
+					'name'     => esc_html__( 'Yellow to purple', 'streamer' ),
 					'gradient' => 'linear-gradient(160deg, ' . $yellow . ' 0%, ' . $purple . ' 100%)',
 					'slug'     => 'yellow-to-purple',
 				),
 				array(
-					'name'     => esc_html__( 'Green to yellow', 'twentytwentyone' ),
+					'name'     => esc_html__( 'Green to yellow', 'streamer' ),
 					'gradient' => 'linear-gradient(160deg, ' . $green . ' 0%, ' . $yellow . ' 100%)',
 					'slug'     => 'green-to-yellow',
 				),
 				array(
-					'name'     => esc_html__( 'Yellow to green', 'twentytwentyone' ),
+					'name'     => esc_html__( 'Yellow to green', 'streamer' ),
 					'gradient' => 'linear-gradient(160deg, ' . $yellow . ' 0%, ' . $green . ' 100%)',
 					'slug'     => 'yellow-to-green',
 				),
 				array(
-					'name'     => esc_html__( 'Red to yellow', 'twentytwentyone' ),
+					'name'     => esc_html__( 'Red to yellow', 'streamer' ),
 					'gradient' => 'linear-gradient(160deg, ' . $red . ' 0%, ' . $yellow . ' 100%)',
 					'slug'     => 'red-to-yellow',
 				),
 				array(
-					'name'     => esc_html__( 'Yellow to red', 'twentytwentyone' ),
+					'name'     => esc_html__( 'Yellow to red', 'streamer' ),
 					'gradient' => 'linear-gradient(160deg, ' . $yellow . ' 0%, ' . $red . ' 100%)',
 					'slug'     => 'yellow-to-red',
 				),
 				array(
-					'name'     => esc_html__( 'Purple to red', 'twentytwentyone' ),
+					'name'     => esc_html__( 'Purple to red', 'streamer' ),
 					'gradient' => 'linear-gradient(160deg, ' . $purple . ' 0%, ' . $red . ' 100%)',
 					'slug'     => 'purple-to-red',
 				),
 				array(
-					'name'     => esc_html__( 'Red to purple', 'twentytwentyone' ),
+					'name'     => esc_html__( 'Red to purple', 'streamer' ),
 					'gradient' => 'linear-gradient(160deg, ' . $red . ' 0%, ' . $purple . ' 100%)',
 					'slug'     => 'red-to-purple',
 				),
@@ -320,7 +320,7 @@ if ( ! function_exists( 'streamer_setup' ) ) {
 		*/
 		if ( is_customize_preview() ) {
 			require get_template_directory() . '/inc/starter-content.php';
-			add_theme_support( 'starter-content', twenty_twenty_one_get_starter_content() );
+			add_theme_support( 'starter-content', streamer_get_starter_content() );
 		}
 
 		// Add support for responsive embedded content.
@@ -340,24 +340,24 @@ if ( ! function_exists( 'streamer_setup' ) ) {
 		add_theme_support( 'custom-units' );
 	}
 }
-add_action( 'after_setup_theme', 'twenty_twenty_one_setup' );
+add_action( 'after_setup_theme', 'streamer_setup' );
 
 /**
  * Register widget area.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Streamer1.0
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  *
  * @return void
  */
-function twenty_twenty_one_widgets_init() {
+function streamer_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer', 'twentytwentyone' ),
+			'name'          => esc_html__( 'Footer', 'streamer' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'twentytwentyone' ),
+			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'streamer' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -365,51 +365,51 @@ function twenty_twenty_one_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'twenty_twenty_one_widgets_init' );
+add_action( 'widgets_init', 'streamer_widgets_init' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Streamer1.0
  *
  * @global int $content_width Content width.
  *
  * @return void
  */
-function twenty_twenty_one_content_width() {
+function streamer_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'twenty_twenty_one_content_width', 750 );
+	$GLOBALS['content_width'] = apply_filters( 'streamer_content_width', 750 );
 }
-add_action( 'after_setup_theme', 'twenty_twenty_one_content_width', 0 );
+add_action( 'after_setup_theme', 'streamer_content_width', 0 );
 
 /**
  * Enqueue scripts and styles.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Streamer 1.0
  *
  * @return void
  */
-function twenty_twenty_one_scripts() {
+function streamer_scripts() {
 	// Note, the is_IE global variable is defined by WordPress and is used
 	// to detect if the current browser is internet explorer.
 	global $is_IE, $wp_scripts;
 	if ( $is_IE ) {
 		// If IE 11 or below, use a flattened stylesheet with static values replacing CSS Variables.
-		wp_enqueue_style( 'twenty-twenty-one-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'streamer-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get( 'Version' ) );
 	} else {
 		// If not IE, use the standard stylesheet.
-		wp_enqueue_style( 'twenty-twenty-one-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'streamer-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
 	}
 
 	// RTL styles.
-	wp_style_add_data( 'twenty-twenty-one-style', 'rtl', 'replace' );
+	wp_style_add_data( 'streamer-style', 'rtl', 'replace' );
 
 	// Print styles.
-	wp_enqueue_style( 'twenty-twenty-one-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
+	wp_enqueue_style( 'streamer-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
 
 	// Threaded comment reply styles.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -418,7 +418,7 @@ function twenty_twenty_one_scripts() {
 
 	// Register the IE11 polyfill file.
 	wp_register_script(
-		'twenty-twenty-one-ie11-polyfills-asset',
+		'streamer-ie11-polyfills-asset',
 		get_template_directory_uri() . '/assets/js/polyfills.js',
 		array(),
 		wp_get_theme()->get( 'Version' ),
@@ -427,18 +427,18 @@ function twenty_twenty_one_scripts() {
 
 	// Register the IE11 polyfill loader.
 	wp_register_script(
-		'twenty-twenty-one-ie11-polyfills',
+		'streamer-ie11-polyfills',
 		null,
 		array(),
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
 	wp_add_inline_script(
-		'twenty-twenty-one-ie11-polyfills',
+		'streamer-ie11-polyfills',
 		wp_get_script_polyfill(
 			$wp_scripts,
 			array(
-				'Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach' => 'twenty-twenty-one-ie11-polyfills-asset',
+				'Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach' => 'streamer-ie11-polyfills-asset',
 			)
 		)
 	);
@@ -446,9 +446,9 @@ function twenty_twenty_one_scripts() {
 	// Main navigation scripts.
 	if ( has_nav_menu( 'primary' ) ) {
 		wp_enqueue_script(
-			'twenty-twenty-one-primary-navigation-script',
+			'streamer-primary-navigation-script',
 			get_template_directory_uri() . '/assets/js/primary-navigation.js',
-			array( 'twenty-twenty-one-ie11-polyfills' ),
+			array( 'streamer-ie11-polyfills' ),
 			wp_get_theme()->get( 'Version' ),
 			true
 		);
@@ -456,28 +456,28 @@ function twenty_twenty_one_scripts() {
 
 	// Responsive embeds script.
 	wp_enqueue_script(
-		'twenty-twenty-one-responsive-embeds-script',
+		'streamer-responsive-embeds-script',
 		get_template_directory_uri() . '/assets/js/responsive-embeds.js',
-		array( 'twenty-twenty-one-ie11-polyfills' ),
+		array( 'streamer-ie11-polyfills' ),
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
 }
-add_action( 'wp_enqueue_scripts', 'twenty_twenty_one_scripts' );
+add_action( 'wp_enqueue_scripts', 'streamer_scripts' );
 
 /**
  * Enqueue block editor script.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Streamer 1.0
  *
  * @return void
  */
-function twentytwentyone_block_editor_script() {
+function streamer_block_editor_script() {
 
-	wp_enqueue_script( 'twentytwentyone-editor', get_theme_file_uri( '/assets/js/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'streamer-editor', get_theme_file_uri( '/assets/js/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 }
 
-add_action( 'enqueue_block_editor_assets', 'twentytwentyone_block_editor_script' );
+add_action( 'enqueue_block_editor_assets', 'streamer_block_editor_script' );
 
 /**
  * Fix skip link focus in IE11.
@@ -487,7 +487,7 @@ add_action( 'enqueue_block_editor_assets', 'twentytwentyone_block_editor_script'
  *
  * @link https://git.io/vWdr2
  */
-function twenty_twenty_one_skip_link_focus_fix() {
+function streamer_skip_link_focus_fix() {
 
 	// If SCRIPT_DEBUG is defined and true, print the unminified file.
 	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
@@ -503,29 +503,29 @@ function twenty_twenty_one_skip_link_focus_fix() {
 	</script>
 	<?php
 }
-add_action( 'wp_print_footer_scripts', 'twenty_twenty_one_skip_link_focus_fix' );
+add_action( 'wp_print_footer_scripts', 'streamer_skip_link_focus_fix' );
 
 /** Enqueue non-latin language styles
  *
- * @since Twenty Twenty-One 1.0
+ * @since Streamer1.0
  *
  * @return void
  */
-function twenty_twenty_one_non_latin_languages() {
-	$custom_css = twenty_twenty_one_get_non_latin_css( 'front-end' );
+function streamer_non_latin_languages() {
+	$custom_css = streamer_get_non_latin_css( 'front-end' );
 
 	if ( $custom_css ) {
-		wp_add_inline_style( 'twenty-twenty-one-style', $custom_css );
+		wp_add_inline_style( 'streamer-style', $custom_css );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'twenty_twenty_one_non_latin_languages' );
+add_action( 'wp_enqueue_scripts', 'streamer_non_latin_languages' );
 
 // SVG Icons class.
-require get_template_directory() . '/classes/class-twenty-twenty-one-svg-icons.php';
+require get_template_directory() . '/classes/class-streamer-svg-icons.php';
 
 // Custom color classes.
-require get_template_directory() . '/classes/class-twenty-twenty-one-custom-colors.php';
-new Twenty_Twenty_One_Custom_Colors();
+require get_template_directory() . '/classes/class-streamer-custom-colors.php';
+new streamer_Custom_Colors();
 
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
@@ -537,8 +537,8 @@ require get_template_directory() . '/inc/menu-functions.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 // Customizer additions.
-require get_template_directory() . '/classes/class-twenty-twenty-one-customize.php';
-new Twenty_Twenty_One_Customize();
+require get_template_directory() . '/classes/class-streamer-customize.php';
+new streamer_Customize();
 
 // Block Patterns.
 require get_template_directory() . '/inc/block-patterns.php';
@@ -547,19 +547,19 @@ require get_template_directory() . '/inc/block-patterns.php';
 require get_template_directory() . '/inc/block-styles.php';
 
 // Dark Mode.
-require_once get_template_directory() . '/classes/class-twenty-twenty-one-dark-mode.php';
-new Twenty_Twenty_One_Dark_Mode();
+require_once get_template_directory() . '/classes/class-streamer-dark-mode.php';
+new streamer_Dark_Mode();
 
 /**
  * Enqueue scripts for the customizer preview.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Streamer 1.0
  *
  * @return void
  */
-function twentytwentyone_customize_preview_init() {
+function streamer_customize_preview_init() {
 	wp_enqueue_script(
-		'twentytwentyone-customize-helpers',
+		'streamer-customize-helpers',
 		get_theme_file_uri( '/assets/js/customize-helpers.js' ),
 		array(),
 		wp_get_theme()->get( 'Version' ),
@@ -567,43 +567,43 @@ function twentytwentyone_customize_preview_init() {
 	);
 
 	wp_enqueue_script(
-		'twentytwentyone-customize-preview',
+		'streamer-customize-preview',
 		get_theme_file_uri( '/assets/js/customize-preview.js' ),
-		array( 'customize-preview', 'customize-selective-refresh', 'jquery', 'twentytwentyone-customize-helpers' ),
+		array( 'customize-preview', 'customize-selective-refresh', 'jquery', 'streamer-customize-helpers' ),
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
 }
-add_action( 'customize_preview_init', 'twentytwentyone_customize_preview_init' );
+add_action( 'customize_preview_init', 'streamer_customize_preview_init' );
 
 /**
  * Enqueue scripts for the customizer.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Streamer 1.0
  *
  * @return void
  */
-function twentytwentyone_customize_controls_enqueue_scripts() {
+function streamer_customize_controls_enqueue_scripts() {
 
 	wp_enqueue_script(
-		'twentytwentyone-customize-helpers',
+		'streamer-customize-helpers',
 		get_theme_file_uri( '/assets/js/customize-helpers.js' ),
 		array(),
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
 }
-add_action( 'customize_controls_enqueue_scripts', 'twentytwentyone_customize_controls_enqueue_scripts' );
+add_action( 'customize_controls_enqueue_scripts', 'streamer_customize_controls_enqueue_scripts' );
 
 /**
  * Calculate classes for the main <html> element.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Streamer 1.0
  *
  * @return void
  */
-function twentytwentyone_the_html_classes() {
-	$classes = apply_filters( 'twentytwentyone_html_classes', '' );
+function streamer_the_html_classes() {
+	$classes = apply_filters( 'streamer_html_classes', '' );
 	if ( ! $classes ) {
 		return;
 	}
@@ -613,11 +613,11 @@ function twentytwentyone_the_html_classes() {
 /**
  * Add "is-IE" class to body if the user is on Internet Explorer.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Streamer 1.0
  *
  * @return void
  */
-function twentytwentyone_add_ie_class() {
+function streamer_add_ie_class() {
 	?>
 	<script>
 	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
@@ -626,4 +626,4 @@ function twentytwentyone_add_ie_class() {
 	</script>
 	<?php
 }
-add_action( 'wp_footer', 'twentytwentyone_add_ie_class' );
+add_action( 'wp_footer', 'streamer_add_ie_class' );
