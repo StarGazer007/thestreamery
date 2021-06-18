@@ -574,7 +574,7 @@ function streamer_customize_preview_init() {
 		true
 	);
 }
-add_action( 'customize_preview_init', 'streamer_customize_preview_init' );
+//add_action( 'customize_preview_init', 'streamer_customize_preview_init' );
 
 /**
  * Enqueue scripts for the customizer.
