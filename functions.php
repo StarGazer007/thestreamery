@@ -124,11 +124,11 @@ if ( ! function_exists( 'streamer_setup' ) ) {
 		add_theme_support( 'align-wide' );
 
 		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
-		$background_color = get_theme_mod( 'background_color', 'D1E4DD' );
-		if ( 127 > streamer_Custom_Colors::get_relative_luminance_from_hex( $background_color ) ) {
-			add_theme_support( 'dark-editor-style' );
-		}
+	//	add_theme_support( 'editor-styles' );
+	//	$background_color = get_theme_mod( 'background_color', 'D1E4DD' );
+	//	if ( 127 > streamer_Custom_Colors::get_relative_luminance_from_hex( $background_color ) ) {
+	//		add_theme_support( 'dark-editor-style' );
+	//	}
 
 	//	$editor_stylesheet_path = './assets/css/style-editor.css';
 
@@ -409,15 +409,15 @@ function streamer_scripts() {
 	wp_style_add_data( 'streamer-style', 'rtl', 'replace' );
 
 	// Print styles.
-	wp_enqueue_style( 'streamer-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
+//	wp_enqueue_style( 'streamer-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
 
 	// Threaded comment reply styles.
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	//if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+//		wp_enqueue_script( 'comment-reply' );
+//	}
 
 	// Register the IE11 polyfill file.
-	wp_register_script(
+/*	wp_register_script(
 		'streamer-ie11-polyfills-asset',
 		get_template_directory_uri() . '/assets/js/polyfills.js',
 		array(),
@@ -464,7 +464,7 @@ function streamer_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'streamer_scripts' );
-
+*/
 /**
  * Enqueue block editor script.
  *
@@ -472,13 +472,14 @@ add_action( 'wp_enqueue_scripts', 'streamer_scripts' );
  *
  * @return void
  */
+ /*
 function streamer_block_editor_script() {
 
 	wp_enqueue_script( 'streamer-editor', get_theme_file_uri( '/assets/js/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 }
 
 add_action( 'enqueue_block_editor_assets', 'streamer_block_editor_script' );
-
+*/
 /**
  * Fix skip link focus in IE11.
  *
@@ -487,6 +488,7 @@ add_action( 'enqueue_block_editor_assets', 'streamer_block_editor_script' );
  *
  * @link https://git.io/vWdr2
  */
+ /*
 function streamer_skip_link_focus_fix() {
 
 	// If SCRIPT_DEBUG is defined and true, print the unminified file.
@@ -504,13 +506,14 @@ function streamer_skip_link_focus_fix() {
 	<?php
 }
 add_action( 'wp_print_footer_scripts', 'streamer_skip_link_focus_fix' );
-
+*/
 /** Enqueue non-latin language styles
  *
  * @since Streamer1.0
  *
  * @return void
  */
+ /*
 function streamer_non_latin_languages() {
 	$custom_css = streamer_get_non_latin_css( 'front-end' );
 
@@ -549,7 +552,7 @@ require get_template_directory() . '/inc/template-tags.php';
 // Dark Mode.
 //require_once get_template_directory() . '/classes/class-streamer-dark-mode.php';
 //new streamer_Dark_Mode();
-
+*/
 /**
  * Enqueue scripts for the customizer preview.
  *
