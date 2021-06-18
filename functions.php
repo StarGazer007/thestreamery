@@ -9,8 +9,3 @@
  * @subpackage Streamer
  * @since Streamer 1.0
  */
-
-
-
-
- ?>
