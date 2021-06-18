@@ -614,25 +614,3 @@ function streamer_the_html_classes() {
 	}
 	echo 'class="' . esc_attr( $classes ) . '"';
 }
-
-/**
- * Add "is-IE" class to body if the user is on Internet Explorer.
- *
- * @since Streamer 1.0
- *
- * @return void
- */
-/**
-function streamer_add_ie_class() {
-	?>
-
-	<!--
-	<script>
-	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
-		document.body.classList.add( 'is-IE' );
-	}
-</script> -->
-	<?php
-}
-add_action( 'wp_footer', 'streamer_add_ie_class' );
-*/
