@@ -12,7 +12,7 @@
 
 
 
-if ( ! function_exists( 'streamer_setup' ) ) :
+if ( ! function_exists( 'streamer_setup' ) ) {
 /**
 * Sets up theme defaults and registers support for various WordPress features
 *
