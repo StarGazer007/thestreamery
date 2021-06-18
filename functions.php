@@ -372,7 +372,7 @@ add_action( 'widgets_init', 'streamer_widgets_init' );
  *
  * Priority 0 to make it available to lower priority callbacks.
  *
- * @since Streamer1.0
+ * @since Streamer 1.0
  *
  * @global int $content_width Content width.
  *
